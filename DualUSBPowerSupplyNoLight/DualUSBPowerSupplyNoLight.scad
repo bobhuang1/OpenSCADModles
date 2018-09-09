@@ -32,7 +32,7 @@
 // - Largeur - Width
   Width         = 38;                     
 // - Hauteur - Height  
-  Height        = 21;  
+  Height        = 23;  
 // - Epaisseur - Wall thickness  
   Thick         = 1.5;//[2:5]  
   
@@ -73,13 +73,13 @@ FootHole        = 2;
 
 /* [STL element to export] */
 //Coque haut - Top shell
-TShell          = 0;// [0:No, 1:Yes]
+TShell          = 1;// [0:No, 1:Yes]
 //Coque bas- Bottom shell
 BShell          = 0;// [0:No, 1:Yes]
 //Panneau avant - Front panel
 FPanL           = 0;// [0:No, 1:Yes]
 //Panneau arrière - Back panel  
-BPanL           = 1;// [0:No, 1:Yes]
+BPanL           = 0;// [0:No, 1:Yes]
 
 
   
@@ -359,8 +359,8 @@ module FPanL(){
     rotate([90,0,90]){
         color(Couleur2){
 //                     <- Cutting shapes from here ->  
-        SquareHole  (1,9.4,1.45,6.5,14.4,1); //(On/Off, Xpos,Ypos,Length,Width,Filet)
-        SquareHole  (1,18,1.45,6.5,14.4,1); //(On/Off, Xpos,Ypos,Length,Width,Filet)
+        SquareHole  (1,9.4,2.2,6.5,14.4,1); //(On/Off, Xpos,Ypos,Length,Width,Filet)
+        SquareHole  (1,18,2.2,6.5,14.4,1); //(On/Off, Xpos,Ypos,Length,Width,Filet)
             
 //        CylinderHole(1,27,40,8);       //(On/Off, Xpos, Ypos, Diameter)
 //                            <- To here -> 
