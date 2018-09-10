@@ -1,12 +1,12 @@
 
-BaseWidth = 145;
+BaseWidth = 147;
 BaseDepth = 85;
 BaseHeight = 90;
-CornerRadius = 5;
+CornerRadius = 3;
 WallThickness = 2;
 LCDScreenWidth=84;
 LCDScreenHeight=50;
-LCDScreenX=20;
+LCDScreenX=21.5;
 LCDScreenY=20;
 SmokeSensorRadius = 9.8;
 SmokeSensorX=BaseWidth-WallThickness*2-1-SmokeSensorRadius;
@@ -57,9 +57,9 @@ difference() {
     translate([SmokeSensorX, SmokeSensorY, 0]){
         cylinder(h=WallThickness, r1=SmokeSensorRadius, r2=SmokeSensorRadius, center=false);
     }
-    translate([LEDX, LEDY, 0]){
-        cylinder(h=WallThickness, r1=LEDRadius, r2=LEDRadius, center=false);
-    }
+//    translate([LEDX, LEDY, 0]){
+//        cylinder(h=WallThickness, r1=LEDRadius, r2=LEDRadius, center=false);
+//    }
     translate([0, 200+28, 142+30]){
         rotate([135, 0, 0]){
             cube(size=[200, 200, 200], center=false);
