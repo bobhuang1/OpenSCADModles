@@ -57,9 +57,9 @@ difference() {
     translate([SmokeSensorX, SmokeSensorY, 0]){
         cylinder(h=WallThickness, r1=SmokeSensorRadius, r2=SmokeSensorRadius, center=false);
     }
-//    translate([LEDX, LEDY, 0]){
-//        cylinder(h=WallThickness, r1=LEDRadius, r2=LEDRadius, center=false);
-//    }
+    translate([LEDX, LEDY, 0]){
+        cylinder(h=WallThickness, r1=LEDRadius, r2=LEDRadius, center=false);
+    }
     translate([0, 200+28, 142+30]){
         rotate([135, 0, 0]){
             cube(size=[200, 200, 200], center=false);
