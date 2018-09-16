@@ -1,7 +1,7 @@
 
 BaseWidth = 147;
 BaseDepth = 85;
-BaseHeight = 90;
+BaseHeight = 40;
 CornerRadius = 3;
 WallThickness = 1.5;
 LCDScreenWidth=84;
@@ -60,11 +60,11 @@ difference() {
 //    translate([LEDX, LEDY, 0]){
 //        cylinder(h=WallThickness, r1=LEDRadius, r2=LEDRadius, center=false);
 //    }
-    translate([0, 200+28, 142+30]){
-        rotate([135, 0, 0]){
-            cube(size=[200, 200, 200], center=false);
-        }
-    }
+//    translate([0, 200+28, 142+30]){
+//        rotate([135, 0, 0]){
+//            cube(size=[200, 200, 200], center=false);
+//        }
+//    }
 /*    
     translate([0, 0, 33]){
         rotate([45, 0, 0]){
