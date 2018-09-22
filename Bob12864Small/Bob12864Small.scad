@@ -1,13 +1,13 @@
 
-BaseWidth = 126;
-BaseDepth = 85;
+BaseWidth = 123;
+BaseDepth = 84;
 BaseHeight = 60;
 CornerRadius = 3;
 WallThickness = 1.5;
-LCDScreenWidth=84;
-LCDScreenHeight=50;
+LCDScreenWidth=82;
+LCDScreenHeight=49;
 LCDScreenX=20;
-LCDScreenY=20;
+LCDScreenY=21;
 
 module RoundedRectangle($Width=BaseWidth, $Depth=BaseDepth, $Radius=CornerRadius) 
 {
