@@ -66,7 +66,7 @@ difference() {
     }
 }
 
-/*
+
 translate([13, 0, 30]){
  rotate([90, 0, 0]){
     linear_extrude(height = WallThickness/2){
@@ -82,8 +82,8 @@ translate([11, 0, 10]){
     }
  }
 }
-*/
 
+/*
 translate([6, 0, 25]){
  rotate([90, 0, 0]){
     linear_extrude(height = WallThickness/2){
@@ -91,7 +91,7 @@ translate([6, 0, 25]){
     }
  }
 }
-
+*/
 
 /*
 difference() {
