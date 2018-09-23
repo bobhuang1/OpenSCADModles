@@ -50,9 +50,9 @@ difference() {
         cube(size=[LCDScreenWidth, LCDScreenHeight, WallThickness], center=false);
     }
     
-    translate([126, 12, 15]) {
-        rotate([0, -90, 0]){
-            cube(size=[5, 5, WallThickness], center=false);
+    translate([105, 0, 15]) {
+        rotate([-90, 0, 0]){
+            cube(size=[7, 7, WallThickness], center=false);
         }
     }
 
@@ -72,16 +72,16 @@ difference() {
 
 translate([13, 0, 30]){
  rotate([90, 0, 0]){
-    linear_extrude(height = WallThickness){
+    linear_extrude(height = WallThickness/2){
         text("IBE Group, Inc.", size=9, font="Arial Black");
     }
  }
 }
 
-translate([8, 0, 10]){
+translate([11, 0, 10]){
  rotate([90, 0, 0]){
-    linear_extrude(height = WallThickness){
-        text("Copyright© 2018", size=9, font="Arial Black");
+    linear_extrude(height = WallThickness/2){
+        text("Copyright© 2018", size=7, font="Arial Black");
     }
  }
 }
