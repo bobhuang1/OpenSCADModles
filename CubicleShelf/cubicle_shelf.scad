@@ -1,7 +1,7 @@
 // preview[tilt:top]
 
 // (mm)
-length = 200;
+length = 195;
 
 // (mm)
 width = 120; // [20:100]
@@ -10,13 +10,13 @@ width = 120; // [20:100]
 height = 15;
 
 // of the top hexagonal surface
-thickness = 2;   // [2:7]
+thickness = 3;   // [2:7]
 
 inner_walls = 3; // [3:7]
 outer_walls = 3; // [3:7]
-cell_size = 15;  // [5:35]
+cell_size = 10;  // [5:35]
 seed = 1;
-frequency = 0;  // [0:99]
+frequency = 30;  // [0:99]
 
 /* [Hidden] */
 hole_size = 6.5;
