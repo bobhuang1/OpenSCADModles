@@ -1,13 +1,17 @@
 
 BaseWidth = 101;
-BaseDepth = 94;
+BaseDepth = 93.5;
 BaseHeight = 60;
 CornerRadius = 3;
 WallThickness = 1.5;
-LCDScreenWidth=73;
-LCDScreenHeight=41.5;
-LCDScreenX=14;
-LCDScreenY=17;
+LCDScreenWidth = 73;
+LCDScreenHeight = 41.5;
+LCDScreenX = 14;
+LCDScreenY = 16;
+
+LEDX = BaseWidth - 8;
+LEDY = BaseDepth - 5;
+LEDRadius = 1.75;
 
 module RoundedRectangle($Width=BaseWidth, $Depth=BaseDepth, $Radius=CornerRadius) 
 {
@@ -56,9 +60,9 @@ difference() {
     }
 
 
-//    translate([LEDX, LEDY, 0]){
-//        cylinder(h=WallThickness, r1=LEDRadius, r2=LEDRadius, center=false);
-//    }
+    translate([LEDX, LEDY, 0]){
+        cylinder(h=WallThickness, r1=LEDRadius, r2=LEDRadius, center=false);
+    }
     translate([0, 200+38, 125+25]){
         rotate([135, 0, 0]){
             cube(size=[200, 200, 200], center=false);
@@ -67,21 +71,38 @@ difference() {
 }
 
 
-translate([13, 0, 40]){
- rotate([90, 0, 0]){
+translate([WallThickness, 8, 30]){
+ rotate([90, 0, 90]){
     linear_extrude(height = WallThickness/2){
-        text("IBE Group, Inc.", size=7, font="Arial Black");
+        text("IBE Group, Inc.", size=5, font="Arial Black");
     }
  }
 }
 
-translate([14, 0, 22]){
- rotate([90, 0, 0]){
+translate([WallThickness, 8, 12]){
+ rotate([90, 0, 90]){
     linear_extrude(height = WallThickness/2){
-        text("Copyright© 2018", size=6, font="Arial Black");
+        text("Copyright© 2018", size=5, font="Arial Black");
     }
  }
 }
+
+translate([12, 0, 35]){
+ rotate([90, 0, 0]){
+    linear_extrude(height = WallThickness/2){
+        text("WIFI多功能时钟", size=8, font="SimHei");
+    }
+ }
+}
+
+translate([12, 0, 22]){
+ rotate([90, 0, 0]){
+    linear_extrude(height = WallThickness/2){
+        text("WIFI Multi Function Clock", size=4, font="Arial Black");
+    }
+ }
+}
+
 
 /*
 translate([6, 0, 25]){
