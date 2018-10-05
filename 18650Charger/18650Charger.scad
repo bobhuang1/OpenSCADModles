@@ -4,19 +4,19 @@ PSUWidth = 61;
 PSUHeight = 30;
 WallThickness = 1.25;
 
-ButtonHolePositionY = 9.8+WallThickness;
-ButtonHolePositionZ = PSUHeight-WallThickness*7-1+5;
-ButtonHoleSizeY = 3;
-ButtonHoleSizeZ = 3;
+ButtonHolePositionY = 10.3+WallThickness;
+ButtonHolePositionZ = PSUHeight-WallThickness*7-1+4;
+ButtonHoleSizeY = 4;
+ButtonHoleSizeZ = 4;
 
 OutputHolePositionY = 18.5+WallThickness;
 OutputHolePositionZ = PSUHeight-WallThickness*7;
-OutputHoleSizeY = 14.5;
+OutputHoleSizeY = 15.5;
 OutputHoleSizeZ = 8.0;
 
 InputHolePositionY = 45+WallThickness;
 InputHolePositionZ = PSUHeight-WallThickness*7-1.8+5;
-InputHoleSizeY = 9.2;
+InputHoleSizeY = 9.9;
 InputHoleSizeZ = 3.8;
 
 BatterySizeX=21;
@@ -24,10 +24,10 @@ BatterySizeY=72;
 BatteryPositionX=PSUWidth-WallThickness-BatterySizeX;
 BatteryPositionY=(PSULength-BatterySizeY)/2;
 
-DisplaySizeX=16.8;
-DisplaySizeY=28.2;
-DisplayPositionX=13.5+WallThickness;
-DisplayPositionY=16.5;
+DisplaySizeX=16.1;
+DisplaySizeY=29.2;
+DisplayPositionX=13+WallThickness;
+DisplayPositionY=16;
 
 
 // Bottom Cover
