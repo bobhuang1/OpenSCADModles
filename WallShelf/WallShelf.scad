@@ -1,6 +1,6 @@
 
-ShelfLength = 190;
-ShelfWidth = 100;
+ShelfLength = 180;
+ShelfWidth = 110;
 ShelfHeight = 8;
 WallThickness = 1.5;
 
