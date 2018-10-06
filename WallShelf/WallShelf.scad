@@ -9,38 +9,48 @@ ColumnHeight = 80;
 ColumnOffset = 20;
 ColumnHoleRadius = 1.5;
 
+// Main surface
 cube([ShelfWidth, ShelfLength, WallThickness], center=false);
 
+// Backwall reenforcement
 translate([0, 0, ShelfHeight/2]) {
     rotate([0, 90, 0]) {
         cube([ShelfHeight, ShelfLength, WallThickness], center=false);
     }
 }
 
+/* 
+// Front reenforcement - cannot print, turn off!!!
 translate([ShelfWidth, 0, 0-ColumnSize]) {
     cube([WallThickness, ShelfLength, ColumnSize + WallThickness], center=false);
 }
+*/
 
+// Triangle reenforcement
 translate([5, 0, -(ColumnHeight-ColumnOffset) + 3]) {
     rotate([0, -atan((ColumnHeight-ColumnOffset)/ShelfWidth),0]) {
         cube([sqrt(ShelfWidth*ShelfWidth + (ColumnHeight-ColumnOffset)*(ColumnHeight-ColumnOffset)) - 15, ColumnSize, ColumnSize], center=false);
     }
 }
 
+// Triangle reenforcement
 translate([5, ShelfLength-ColumnSize, -(ColumnHeight-ColumnOffset) + 3]) {
     rotate([0, -atan((ColumnHeight-ColumnOffset)/ShelfWidth),0]) {
         cube([sqrt(ShelfWidth*ShelfWidth + (ColumnHeight-ColumnOffset)*(ColumnHeight-ColumnOffset)) - 15, ColumnSize, ColumnSize], center=false);
     }
 }
 
+// Surface reenforcement
 translate([0, 0, -ColumnSize]) {
     cube([ShelfWidth, ColumnSize, ColumnSize], center=false);
 }
 
+// Surface reenforcement
 translate([0, ShelfLength-ColumnSize, -ColumnSize]) {
     cube([ShelfWidth, ColumnSize, ColumnSize], center=false);
 }
 
+// Backwall vertical reenforcement
 difference () {
     translate([0, 0, -ColumnHeight/2 - ColumnOffset]) {
         cube([ColumnSize, ColumnSize, ColumnHeight], center=false);
