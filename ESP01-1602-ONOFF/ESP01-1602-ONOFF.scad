@@ -1,66 +1,78 @@
 
-PSULength = 120;
-PSUWidth = 110;
-PSUHeight = 40;
+UnitLength = 120;
+UnitWidth = 110;
+UnitHeight = 40;
 WallThickness = 1.25;
 
-ButtonHolePositionY = 10.3+WallThickness;
-ButtonHolePositionZ = PSUHeight-WallThickness*7-1+4;
-ButtonHoleSizeY = 6;
-ButtonHoleSizeZ = 2.5;
+PowerHolePositionY = 10.3+WallThickness;
+PowerHolePositionZ = UnitHeight-WallThickness*7-1+4;
+PowerHoleSizeY = 6;
+PowerHoleSizeZ = 2.5;
 
+/*
 OutputHolePositionY = 18.5+WallThickness;
-OutputHolePositionZ = PSUHeight-WallThickness*7;
+OutputHolePositionZ = UnitHeight-WallThickness*7;
 OutputHoleSizeY = 0;
 OutputHoleSizeZ = 0;
 
 InputHolePositionY = 45+WallThickness;
-InputHolePositionZ = PSUHeight-WallThickness*7-1.8+5;
+InputHolePositionZ = UnitHeight-WallThickness*7-1.8+5;
 InputHoleSizeY = 0;
 InputHoleSizeZ = 0;
+*/
 
-BatterySizeX=24.5;
-BatterySizeY=71.5;
-BatteryPositionX=PSUWidth-BatterySizeX-7;
-BatteryPositionY=PSULength-BatterySizeY-7;
+LCD1602SizeX=25;
+LCD1602SizeY=72;
+LCD1602PositionX=UnitWidth-LCD1602SizeX-8;
+LCD1602PositionY=UnitLength-LCD1602SizeY-7;
 
-DisplaySizeX=7;
-DisplaySizeY=7;
-DisplayPositionX=PSUWidth - 15;
-DisplayPositionY=8+WallThickness;
+SwitchSizeX=7;
+SwitchSizeY=7;
+SwitchPositionX=UnitWidth - 15;
+SwitchPositionY=8+WallThickness;
+
+OutletSizeX = 37;
+OutletSizeY = 71;
+OutletPositionX = 10;
+OutletPositionY = UnitLength-OutletSizeY-7;;
 
 
 // Bottom Cover
-/*
-translate([0,PSULength+WallThickness,0]) {
-    cube([PSUWidth-2*WallThickness-0.3, PSULength-2*WallThickness-0.3, WallThickness], center=false);
+
+translate([0,UnitLength+WallThickness,0]) {
+    cube([UnitWidth-2*WallThickness-0.4, UnitLength-2*WallThickness-0.4, WallThickness], center=false);
 }
-*/
+
 // Shell
 
 difference() {
 
         difference() {
-            cube([PSUWidth, PSULength, PSUHeight], center=false);
+            cube([UnitWidth, UnitLength, UnitHeight], center=false);
                 translate([WallThickness, WallThickness, -WallThickness]) {
-                    cube([PSUWidth - 2*WallThickness, PSULength -2*WallThickness, PSUHeight
+                    cube([UnitWidth - 2*WallThickness, UnitLength -2*WallThickness, UnitHeight
 ], center=false);
             }
 
-            translate([DisplayPositionX,DisplayPositionY,PSUHeight-WallThickness]) {
+            translate([SwitchPositionX,SwitchPositionY,UnitHeight-WallThickness]) {
 
-                cube([DisplaySizeX, DisplaySizeY, WallThickness], center=false);
+                cube([SwitchSizeX, SwitchSizeY, WallThickness], center=false);
             }
 
-            translate([BatteryPositionX,BatteryPositionY,PSUHeight-WallThickness]) {
+            translate([LCD1602PositionX,LCD1602PositionY,UnitHeight-WallThickness]) {
 
-                cube([BatterySizeX, BatterySizeY, WallThickness], center=false);
+                cube([LCD1602SizeX, LCD1602SizeY, WallThickness], center=false);
             }
 
-            translate([0,ButtonHolePositionY,ButtonHolePositionZ]) {
-                cube([WallThickness, ButtonHoleSizeY, ButtonHoleSizeZ], center=false);
+            translate([OutletPositionX,OutletPositionY,UnitHeight-WallThickness]) {
+
+                cube([OutletSizeX, OutletSizeY, WallThickness], center=false);
             }
 
+            translate([0,PowerHolePositionY,PowerHolePositionZ]) {
+                cube([WallThickness, PowerHoleSizeY, PowerHoleSizeZ], center=false);
+            }
+/*
             translate([0,OutputHolePositionY,OutputHolePositionZ]) {
                 cube([WallThickness, OutputHoleSizeY, OutputHoleSizeZ], center=false);
             }
@@ -68,11 +80,12 @@ difference() {
             translate([0,InputHolePositionY,InputHolePositionZ]) {
                 cube([WallThickness, InputHoleSizeY, InputHoleSizeZ], center=false);
             }
+*/
        }
 }
 
 
-translate([PSUWidth-0.2, 12, 22]) {
+translate([UnitWidth-0.2, 12, 22]) {
     rotate([90, 0, 90]) {
         linear_extrude(height = 1/2){
             text("220V Remote Switch", size=6, font="Arial Black");
@@ -80,7 +93,7 @@ translate([PSUWidth-0.2, 12, 22]) {
     }
 }
 
-translate([PSUWidth-0.2, 10, 12]) {
+translate([UnitWidth-0.2, 10, 12]) {
     rotate([90, 0, 90]) {
         linear_extrude(height = 1/2){
             text("220V 10A Output Max", size=6, font="Arial Black");
