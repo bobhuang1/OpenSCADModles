@@ -2,7 +2,7 @@
 UnitLength = 120;
 UnitWidth = 140;
 UnitHeight = 40;
-WallThickness = 1.25;
+WallThickness = 2;
 
 PowerHolePositionY = 10.3+WallThickness;
 PowerHolePositionZ = UnitHeight-WallThickness*7-1+4;
@@ -38,11 +38,11 @@ OutletPositionY = UnitLength-OutletSizeY-18;;
 
 
 // Bottom Cover
-
+/*
 translate([0,UnitLength+WallThickness,0]) {
     cube([UnitWidth-2*WallThickness-0.4, UnitLength-2*WallThickness-0.4, WallThickness], center=false);
 }
-
+*/
 // Shell
 
 difference() {
