@@ -2,12 +2,12 @@
 ShelfLength = 180;
 ShelfWidth = 110;
 ShelfHeight = 8;
-WallThickness = 1.5;
+WallThickness = 2;
 
 ColumnSize = 5;
 ColumnHeight = 80;
 ColumnOffset = 20;
-ColumnHoleRadius = 1.5;
+ColumnHoleRadius = 0;
 
 // Main surface
 cube([ShelfWidth, ShelfLength, WallThickness], center=false);
