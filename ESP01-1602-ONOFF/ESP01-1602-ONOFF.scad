@@ -1,6 +1,6 @@
 
 UnitLength = 120;
-UnitWidth = 110;
+UnitWidth = 140;
 UnitHeight = 40;
 WallThickness = 1.25;
 
@@ -23,18 +23,18 @@ InputHoleSizeZ = 0;
 
 LCD1602SizeX=25;
 LCD1602SizeY=72;
-LCD1602PositionX=UnitWidth-LCD1602SizeX-8;
-LCD1602PositionY=UnitLength-LCD1602SizeY-7;
+LCD1602PositionX=UnitWidth-LCD1602SizeX-10;
+LCD1602PositionY=UnitLength-LCD1602SizeY-14;
 
 SwitchSizeX=7;
 SwitchSizeY=7;
 SwitchPositionX=UnitWidth - 15;
 SwitchPositionY=8+WallThickness;
 
-OutletSizeX = 37;
-OutletSizeY = 71;
-OutletPositionX = 10;
-OutletPositionY = UnitLength-OutletSizeY-7;;
+OutletSizeX = 65;
+OutletSizeY = 65;
+OutletPositionX = 18;
+OutletPositionY = UnitLength-OutletSizeY-18;;
 
 
 // Bottom Cover
@@ -72,15 +72,6 @@ difference() {
             translate([0,PowerHolePositionY,PowerHolePositionZ]) {
                 cube([WallThickness, PowerHoleSizeY, PowerHoleSizeZ], center=false);
             }
-/*
-            translate([0,OutputHolePositionY,OutputHolePositionZ]) {
-                cube([WallThickness, OutputHoleSizeY, OutputHoleSizeZ], center=false);
-            }
-
-            translate([0,InputHolePositionY,InputHolePositionZ]) {
-                cube([WallThickness, InputHoleSizeY, InputHoleSizeZ], center=false);
-            }
-*/
        }
 }
 
