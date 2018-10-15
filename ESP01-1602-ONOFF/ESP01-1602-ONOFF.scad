@@ -38,13 +38,13 @@ OutletPositionY = UnitLength-OutletSizeY-18;;
 
 
 // Bottom Cover
-/*
+
 translate([0,UnitLength+WallThickness,0]) {
     cube([UnitWidth-2*WallThickness-0.4, UnitLength-2*WallThickness-0.4, WallThickness], center=false);
 }
-*/
-// Shell
 
+// Shell
+/*
 difference() {
 
         difference() {
@@ -91,3 +91,4 @@ translate([UnitWidth-0.2, 10, 12]) {
         }
     }
 }
+*/
