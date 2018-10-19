@@ -38,13 +38,14 @@ OutletPositionY = UnitLength-OutletSizeY-18;;
 
 
 // Bottom Cover
-
+/*
 translate([0,UnitLength+WallThickness,0]) {
     cube([UnitWidth-2*WallThickness-0.4, UnitLength-2*WallThickness-0.4, WallThickness], center=false);
 }
+*/
 
 // Shell
-/*
+
 difference() {
 
         difference() {
@@ -68,11 +69,12 @@ difference() {
 
                 cube([OutletSizeX, OutletSizeY, WallThickness], center=false);
             }
-
-            translate([0,PowerHolePositionY,PowerHolePositionZ]) {
+rotate([0,0,90]) {
+            translate([0,-PowerHolePositionY,PowerHolePositionZ]) {
                 cube([WallThickness, PowerHoleSizeY, PowerHoleSizeZ], center=false);
             }
        }
+}       
 }
 
 
@@ -90,5 +92,13 @@ translate([UnitWidth-0.2, 10, 12]) {
             text("220V 10A Output Max", size=6, font="Arial Black");
         }
     }
+}
+
+
+// Button
+/*
+cube([SwitchSizeX - 0.5, SwitchSizeY - 0.5, WallThickness * 2], center=true);
+translate([0, 0, -WallThickness]) {
+    cube([SwitchSizeX + 2, SwitchSizeY + 2, WallThickness  ], center=true);
 }
 */
