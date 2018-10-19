@@ -97,8 +97,10 @@ translate([UnitWidth-0.2, 10, 12]) {
 
 // Button
 /*
-cube([SwitchSizeX - 0.5, SwitchSizeY - 0.5, WallThickness * 2], center=true);
-translate([0, 0, -WallThickness]) {
-    cube([SwitchSizeX + 2, SwitchSizeY + 2, WallThickness  ], center=true);
+translate([UnitWidth+SwitchSizeX,(SwitchSizeY+2)/2,WallThickness * 1.5]) {
+    cube([SwitchSizeX - 0.8, SwitchSizeY - 0.8, WallThickness * 3], center=true);
+        translate([0, 0, -WallThickness]) {
+            cube([SwitchSizeX + 2, SwitchSizeY + 2, WallThickness  ], center=true);
+    }
 }
 */
