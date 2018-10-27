@@ -1,17 +1,17 @@
 
-BaseWidth = 93;
-BaseDepth = 57;
-BaseHeight = 38;
+BaseWidth = 93.5;
+BaseDepth = 56.8;
+BaseHeight = 40;
 CornerRadius = 3;
 WallThickness = 1.5;
 LCDScreenWidth = 72;
 LCDScreenHeight = 40.5;
-LCDScreenX = 8.5 + WallThickness;
-LCDScreenY=4 + WallThickness;
+LCDScreenX = 9.25 + WallThickness;
+LCDScreenY=3.9 + WallThickness;
 USBInputHoleWidth=9;
 USBInputHoleHeight=4;
 USBInputHoleY = 19+WallThickness;
-USBInputHoleZ = 15;
+USBInputHoleZ = 15+8;
 
 module RoundedRectangle($Width=BaseWidth, $Depth=BaseDepth, $Radius=CornerRadius) 
 {
