@@ -1,13 +1,13 @@
 
 BaseWidth = 150;
-BaseDepth = 74;
-BaseHeight = 40;
+BaseDepth = 80;
+BaseHeight = 55;
 CornerRadius = 3;
 WallThickness = 1.5;
 LCDScreenWidth = 69.5;
 LCDScreenHeight = 40;
-LCDScreenX = 11 + WallThickness + 2.75;
-LCDScreenY=15 + WallThickness + 0.3;
+LCDScreenX = 11 + WallThickness + 2.75 + 21.5;
+LCDScreenY=18 + WallThickness + 0.3;
 
 module RoundedRectangle($Width=BaseWidth, $Depth=BaseDepth, $Radius=CornerRadius) 
 {
@@ -49,14 +49,14 @@ difference() {
         cube(size=[LCDScreenWidth, LCDScreenHeight, WallThickness], center=false);
     }
 
-    translate([0, 35, 14]){
-        cube(size=[WallThickness, 12, 9.5], center=false);
+    translate([0, 23, 13]){
+        cube(size=[WallThickness, 14, 7], center=false);
     }
 
-    translate([0, 23, 14]){
-        cube(size=[WallThickness, 5, 3], center=false);
+    translate([0, 45, 15]){
+        cube(size=[WallThickness, 9, 4], center=false);
     }
-    translate([BaseWidth - 20, (BaseDepth-WallThickness*2)/2, 0]){
+    translate([BaseWidth - 20, (BaseDepth-WallThickness*2)/2-2, 0]){
         cube(size=[7, 7, WallThickness], center=false);
     }
 }
@@ -83,7 +83,7 @@ difference() {
         RoundedRectangle(BaseWidth-WallThickness*2-1, BaseDepth-WallThickness*2-1, CornerRadius);
     }
 
-    translate([11+WallThickness, BaseDepth+WallThickness*3+8, 0]){
+    translate([16+WallThickness, BaseDepth+WallThickness*3+9, 0]){
         cube(size=[85, 10, WallThickness], center=false);
     }
 }
