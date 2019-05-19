@@ -56,9 +56,15 @@ difference() {
     translate([0, 45, 7]){
         cube(size=[WallThickness, 9, 4], center=false);
     }
-    translate([BaseWidth - 23, (BaseDepth-WallThickness*2)-4, 0]){
+    
+    translate([BaseWidth - 28, (BaseDepth-WallThickness*2)-4, 0]){
         cube(size=[10, 4, WallThickness], center=false);
     }
+
+    translate([BaseWidth-WallThickness, 8, 4]){
+        cube(size=[WallThickness, 14.2, 9.6], center=false);
+    }
+
 }
     
 translate([35, 0, 25]){
