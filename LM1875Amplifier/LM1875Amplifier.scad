@@ -1,7 +1,7 @@
 
 BaseWidth = 120;
 BaseDepth = 90;
-BaseHeight = 175;
+BaseHeight = 195;
 CornerRadius = 3;
 WallThickness = 1.5;
 LCDScreenWidth = 72.5;
@@ -48,7 +48,7 @@ module base3D($Width=BaseWidth, $Depth=BaseDepth, $Height=BaseHeight, $Radius=Co
     }
 }
 
-/*
+
 difference() {
     base3D(BaseWidth, BaseDepth, BaseHeight, CornerRadius, WallThickness);
     translate([LCDScreenX, LCDScreenY, 0]) {
@@ -57,12 +57,12 @@ difference() {
     // Button hole
     rotate([90, 0, 0]){
         translate([BaseWidth - 20, 12, -WallThickness]){
-            cube(size=[7, 7, WallThickness], center=false);
+            cube(size=[8.8, 3.5, WallThickness], center=false);
         }
     }
     // Voltage display hole
     rotate([90, 0, 0]){
-        translate([30+WallThickness, 10+WallThickness, -WallThickness]){
+        translate([20+WallThickness, 13+WallThickness, -WallThickness]){
             cube(size=[VoltageDisplaySizeX, VoltageDisplaySizeY, WallThickness], center=false);
         }
     }
@@ -86,21 +86,21 @@ difference() {
     }
     // Fan hole
     rotate([90, 0, 0]){
-        translate([38, 40, -WallThickness]){
-            cube(size=[71, 86, WallThickness], center=false);
+        translate([36, 40, -WallThickness]){
+            cube(size=[75, 91, WallThickness], center=false);
         }
     }
     // Volume hole
-    translate([BaseWidth - VolumeHoleX, VolumeHoleY+LCDScreenHeight, 0]){
+    translate([BaseWidth - VolumeHoleX, VolumeHoleY+LCDScreenHeight+2.5, 0]){
         cylinder(h=WallThickness, r=4.5, center=false);
     }
     // Stereo jack hole
-    translate([BaseWidth - VolumeHoleX + 25, VolumeHoleY+1+LCDScreenHeight, 0]){
-        cylinder(h=WallThickness, r=3, center=false);
+    translate([BaseWidth - VolumeHoleX + 25, VolumeHoleY+1+LCDScreenHeight+4, 0]){
+        cylinder(h=WallThickness, r=4, center=false);
     }
     // Earphone jack hole
-    translate([BaseWidth - VolumeHoleX - 25, VolumeHoleY+1+LCDScreenHeight, 0]){
-        cylinder(h=WallThickness, r=3, center=false);
+    translate([BaseWidth - VolumeHoleX - 25, VolumeHoleY+1+LCDScreenHeight+4, 0]){
+        cylinder(h=WallThickness, r=4, center=false);
     }
     // Vent holes on the left side
     for ( i = [0 : 7] ){
@@ -125,7 +125,7 @@ difference() {
 
 }
     
-translate([13+8, 0, 25+128]){
+translate([13+8, 0, 25+128+15]){
  rotate([90, 0, 0]){
     linear_extrude(height = WallThickness/2){
         text("IBE Group, Inc.", size=7, font="Arial Black");
@@ -133,14 +133,14 @@ translate([13+8, 0, 25+128]){
  }
 }
 
-translate([15+8, 0, 10+128]){
+translate([15+8, 0, 10+128+15]){
  rotate([90, 0, 0]){
     linear_extrude(height = WallThickness/2){
         text("Copyright© 2019", size=6, font="Arial Black");
     }
  }
 }
-*/
+
 
 difference() {
     translate([0, BaseDepth+WallThickness*3, 0]){
