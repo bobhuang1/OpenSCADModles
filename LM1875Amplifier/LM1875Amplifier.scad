@@ -161,8 +161,8 @@ difference() {
         RoundedRectangle(BaseWidth-WallThickness*2-1, BaseDepth-WallThickness*2-1, CornerRadius);
     }
     // Power cord hole
-    translate([3+WallThickness, BaseDepth+WallThickness*3+6, 0]){
-        cube(size=[5, 5, WallThickness], center=false);
+    translate([7+WallThickness, BaseDepth+WallThickness*3+6+4, 0]){
+        cube(size=[25, 41, WallThickness], center=false);
     }
     // Transformer hole
     translate([BaseWidth/2+7, BaseDepth*1.5+WallThickness*2-0.5, 0]){
