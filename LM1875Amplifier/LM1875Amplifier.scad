@@ -90,6 +90,14 @@ difference() {
             cube(size=[75, 91, WallThickness], center=false);
         }
     }
+    // Power Switch 14.2X9.6
+
+    rotate([90, 0, 0]){
+        translate([6, 170, -WallThickness]){
+            cube(size=[9.6, 14.2, WallThickness], center=false);
+        }
+    }
+    
     // Volume hole
     translate([BaseWidth - VolumeHoleX, VolumeHoleY+LCDScreenHeight+2.5, 0]){
         cylinder(h=WallThickness, r=4.5, center=false);
@@ -122,7 +130,12 @@ difference() {
             }
         }
     }
-
+    // Speaker Output Hole
+    translate([BaseWidth-WallThickness, 20 , 158]) {
+        rotate([0, 90, 0]){
+            cube(size=[24, 51.5, WallThickness], center=false);
+        }
+    }
 }
     
 translate([13+8, 0, 25+128+15]){
