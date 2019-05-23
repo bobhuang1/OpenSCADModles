@@ -12,7 +12,7 @@ VolumeHoleX = 45;
 VolumeHoleY = 38;
 USBHoleX = 5;
 USBHoleY = 22;
-VoltageDisplaySizeX = 23.5;
+VoltageDisplaySizeX = 23.5; // Store 23.5X11.3, Home 23.5X11.3, Office 24X15.5
 VoltageDisplaySizeY = 11.3;
 
 module RoundedRectangle($Width=BaseWidth, $Depth=BaseDepth, $Radius=CornerRadius) 
@@ -87,7 +87,7 @@ difference() {
     // Fan hole
     rotate([90, 0, 0]){
         translate([36, 40, -WallThickness]){
-            cube(size=[75, 91, WallThickness], center=false);
+            cube(size=[75, 91, WallThickness], center=false); // Store 75X91, Office 74X88, Home ?
         }
     }
     // Power Switch 14.2X9.6

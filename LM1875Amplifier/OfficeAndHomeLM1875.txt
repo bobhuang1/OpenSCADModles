@@ -1,0 +1,12 @@
+Store
+Voltage Meter: 23.5X11.3
+Fan: 75X91
+
+Office
+Voltage Meter: 24X15.5
+Fan: 70X84
+
+Home:
+Voltage Meter: 23.5X11.3
+Fan: ?
+
