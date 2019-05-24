@@ -8,5 +8,5 @@ Fan: 70X84
 
 Home:
 Voltage Meter: 23.5X11.3
-Fan: ?
+Fan: 79X90
 
