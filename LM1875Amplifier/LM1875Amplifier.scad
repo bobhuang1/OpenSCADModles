@@ -87,7 +87,7 @@ difference() {
     // Fan hole
     rotate([90, 0, 0]){
         translate([36, 40, -WallThickness]){
-            cube(size=[75, 91, WallThickness], center=false); // Store 75X91, Office 74X88, Home ?
+            cube(size=[75, 91, WallThickness], center=false); // Store 75X91, Office 70X84, Home 70X90
         }
     }
     // Power Switch 14.2X9.6
