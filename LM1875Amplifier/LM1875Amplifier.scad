@@ -100,22 +100,22 @@ difference() {
     
     // Volume hole
     translate([BaseWidth - VolumeHoleX, VolumeHoleY+LCDScreenHeight+2.5, 0]){
-        cylinder(h=WallThickness, r=4.5, center=false);
+        cylinder(h=WallThickness, r=4.5, center=false, $fn=100);
     }
     // Stereo jack hole
     translate([BaseWidth - VolumeHoleX + 25, VolumeHoleY+1+LCDScreenHeight+4, 0]){
-        cylinder(h=WallThickness, r=4, center=false);
+        cylinder(h=WallThickness, r=4, center=false, $fn=50);
     }
     // Earphone jack hole
     translate([BaseWidth - VolumeHoleX - 25, VolumeHoleY+1+LCDScreenHeight+4, 0]){
-        cylinder(h=WallThickness, r=4, center=false);
+        cylinder(h=WallThickness, r=4, center=false, $fn=50);
     }
     // Vent holes on the left side
     for ( i = [0 : 7] ){
         for ( j = [0 : 3] ){
                 translate([0, 12 + i*9.5, 10 + j*9.5]) {
                 rotate([0, 90, 0]){
-                    cylinder(h=WallThickness, r=2, center=false);
+                    cylinder(h=WallThickness, r=2, center=false, $fn=30);
                 }
             }
         }
@@ -125,7 +125,7 @@ difference() {
         for ( j = [0 : 5] ){
                 translate([BaseWidth-WallThickness, 12 + i*9.5, 10 + j*9.5]) {
                 rotate([0, 90, 0]){
-                    cylinder(h=WallThickness, r=2, center=false);
+                    cylinder(h=WallThickness, r=2, center=false, $fn=30);
                 }
             }
         }
@@ -166,7 +166,7 @@ difference() {
     }
     // Transformer hole
     translate([BaseWidth/2+7, BaseDepth*1.5+WallThickness*2-0.5, 0]){
-        cylinder(h=WallThickness, r=5, center=false);
+        cylinder(h=WallThickness, r=5, center=false, $fn=100);
     }
     // Vent holes
     for ( j = [0 : 7] ){
@@ -174,7 +174,7 @@ difference() {
             if (!((i == 6 || i == 7) && (j == 3 || j == 4))) // Avoid power cord hole
             {
                 translate([15 + i * 8, BaseDepth+WallThickness*3+15 + j*8, 0]){
-                    cylinder(h=WallThickness, r=3, center=false);
+                    cylinder(h=WallThickness, r=3, center=false, $fn=30);
                 }
             }
         }
