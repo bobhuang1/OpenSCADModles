@@ -1,4 +1,4 @@
-
+// Office version as default
 BaseWidth = 120;
 BaseDepth = 90;
 BaseHeight = 195;
@@ -12,8 +12,11 @@ VolumeHoleX = 45;
 VolumeHoleY = 38;
 USBHoleX = 5;
 USBHoleY = 22;
-VoltageDisplaySizeX = 23.5; // Store 23.5X11.3, Home 23.5X11.3, Office 24X15.5
-VoltageDisplaySizeY = 11.3;
+
+VoltageDisplaySizeX = 24.2; // Store 23.5X11.3 - Done, Home 23.5X11.3, Office 24X15.5
+VoltageDisplaySizeY = 15.5;
+FanSizeX =70; // Store 75X91 - Done, Home 70X90, Office 70X84
+FanSizeY =84;
 
 module RoundedRectangle($Width=BaseWidth, $Depth=BaseDepth, $Radius=CornerRadius) 
 {
@@ -62,7 +65,7 @@ difference() {
     }
     // Voltage display hole
     rotate([90, 0, 0]){
-        translate([20+WallThickness, 13+WallThickness, -WallThickness]){
+        translate([18+WallThickness, 13+WallThickness, -WallThickness]){
             cube(size=[VoltageDisplaySizeX, VoltageDisplaySizeY, WallThickness], center=false);
         }
     }
@@ -87,14 +90,7 @@ difference() {
     // Fan hole
     rotate([90, 0, 0]){
         translate([36, 40, -WallThickness]){
-            cube(size=[75, 91, WallThickness], center=false); // Store 75X91, Office 70X84, Home 70X90
-        }
-    }
-    // Power Switch 14.2X9.6
-
-    rotate([90, 0, 0]){
-        translate([6, 170, -WallThickness]){
-            cube(size=[9.6, 14.2, WallThickness], center=false);
+            cube(size=[FanSizeX, FanSizeY, WallThickness], center=false);
         }
     }
     
@@ -104,36 +100,49 @@ difference() {
     }
     // Stereo jack hole
     translate([BaseWidth - VolumeHoleX + 25, VolumeHoleY+1+LCDScreenHeight+4, 0]){
-        cylinder(h=WallThickness, r=4, center=false, $fn=50);
+        cylinder(h=WallThickness, r=3, center=false, $fn=50);
     }
     // Earphone jack hole
     translate([BaseWidth - VolumeHoleX - 25, VolumeHoleY+1+LCDScreenHeight+4, 0]){
-        cylinder(h=WallThickness, r=4, center=false, $fn=50);
+        cylinder(h=WallThickness, r=3, center=false, $fn=50);
     }
     // Vent holes on the left side
     for ( i = [0 : 7] ){
         for ( j = [0 : 3] ){
                 translate([0, 12 + i*9.5, 10 + j*9.5]) {
                 rotate([0, 90, 0]){
-                    cylinder(h=WallThickness, r=2, center=false, $fn=30);
+                    cylinder(h=WallThickness, r=3, center=false, $fn=30);
                 }
             }
         }
     }
+    
+    // Power input hole
+    translate([0, BaseDepth-23.5, BaseHeight-15]){
+        rotate([0, 90, 0])
+        cube(size=[28.3, 18.5, WallThickness], center=false);
+    }
+
+    // Power switch hole
+    translate([0, 8, BaseHeight-15]){
+        rotate([0, 90, 0])
+        cube(size=[9.6, 14.2, WallThickness], center=false);
+    }
+    
     // Vent holes on the right side
     for ( i = [0 : 7] ){
         for ( j = [0 : 5] ){
                 translate([BaseWidth-WallThickness, 12 + i*9.5, 10 + j*9.5]) {
                 rotate([0, 90, 0]){
-                    cylinder(h=WallThickness, r=2, center=false, $fn=30);
+                    cylinder(h=WallThickness, r=3, center=false, $fn=30);
                 }
             }
         }
     }
     // Speaker Output Hole
-    translate([BaseWidth-WallThickness, 20 , 158]) {
+    translate([BaseWidth-WallThickness, 23 , BaseHeight-50]) {
         rotate([0, 90, 0]){
-            cube(size=[24, 51.5, WallThickness], center=false);
+            cube(size=[24.8, 51.5, WallThickness], center=false);
         }
     }
 }
@@ -154,30 +163,19 @@ translate([15+8, 0, 10+128+15]){
  }
 }
 
-
+/*
 difference() {
     translate([0, BaseDepth+WallThickness*3, 0]){
         linear_extrude(height = WallThickness, center = false, convexity = 0, twist = 0)
         RoundedRectangle(BaseWidth-WallThickness*2-1, BaseDepth-WallThickness*2-1, CornerRadius);
     }
-    // Power cord hole
-    translate([7+WallThickness, BaseDepth+WallThickness*3+6+4, 0]){
-        cube(size=[25, 41, WallThickness], center=false);
-    }
-    // Transformer hole
-    translate([BaseWidth/2+7, BaseDepth*1.5+WallThickness*2-0.5, 0]){
-        cylinder(h=WallThickness, r=5, center=false, $fn=100);
-    }
     // Vent holes
     for ( j = [0 : 7] ){
         for ( i = [0 : 11] ){
-            if (!((i == 6 || i == 7) && (j == 3 || j == 4))) // Avoid power cord hole
-            {
-                translate([15 + i * 8, BaseDepth+WallThickness*3+15 + j*8, 0]){
-                    cylinder(h=WallThickness, r=3, center=false, $fn=30);
-                }
+            translate([15 + i * 8, BaseDepth+WallThickness*3+15 + j*8, 0]){
+                cylinder(h=WallThickness, r=3, center=false, $fn=30);
             }
         }
     }
 }
-
+*/
