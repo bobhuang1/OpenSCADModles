@@ -1,7 +1,7 @@
-// Office version as default
+// Home version as default
 BaseWidth = 120;
 BaseDepth = 90;
-BaseHeight = 195;
+BaseHeight = 185;
 CornerRadius = 3;
 WallThickness = 1.5;
 LCDScreenWidth = 72.5;
@@ -13,10 +13,10 @@ VolumeHoleY = 38;
 USBHoleX = 5;
 USBHoleY = 22;
 
-VoltageDisplaySizeX = 24.2; // Store 23.5X11.3 - Done, Home 23.5X11.3, Office 24X15.5
-VoltageDisplaySizeY = 15.5;
-FanSizeX =70; // Store 75X91 - Done, Home 70X90, Office 70X84
-FanSizeY =84;
+VoltageDisplaySizeX = 23.5; // Store 23.5X11.3 - Done, Home 23.5X11.3, Office 24X15.5
+VoltageDisplaySizeY = 11.3;
+FanSizeX =74; // Store 75X91 - Done, Home 74X90, Office 70X84
+FanSizeY =90;
 
 module RoundedRectangle($Width=BaseWidth, $Depth=BaseDepth, $Radius=CornerRadius) 
 {
@@ -57,16 +57,19 @@ difference() {
     translate([LCDScreenX, LCDScreenY, 0]) {
         cube(size=[LCDScreenWidth, LCDScreenHeight, WallThickness], center=false);
     }
+    
+
+    // Voltage display hole
+//    rotate([90, 0, 0])
+//        translate([18+WallThickness+3, 13+WallThickness, -WallThickness])
+    translate([WallThickness*3, BaseDepth-VoltageDisplaySizeY-WallThickness*3, 0])
+        cube(size=[VoltageDisplaySizeX, VoltageDisplaySizeY, WallThickness], center=false);
+    
+    
     // Button hole
     rotate([90, 0, 0]){
-        translate([BaseWidth - 20, 12, -WallThickness]){
+        translate([BaseWidth - 15, 22, -WallThickness]){
             cube(size=[8.8, 3.5, WallThickness], center=false);
-        }
-    }
-    // Voltage display hole
-    rotate([90, 0, 0]){
-        translate([18+WallThickness, 13+WallThickness, -WallThickness]){
-            cube(size=[VoltageDisplaySizeX, VoltageDisplaySizeY, WallThickness], center=false);
         }
     }
     // USB hole 1
@@ -95,16 +98,16 @@ difference() {
     }
     
     // Volume hole
-    translate([BaseWidth - VolumeHoleX, VolumeHoleY+LCDScreenHeight+2.5, 0]){
+    translate([BaseWidth - VolumeHoleX, VolumeHoleY+LCDScreenHeight+2.5-2, 0]){
         cylinder(h=WallThickness, r=4.5, center=false, $fn=100);
     }
     // Stereo jack hole
-    translate([BaseWidth - VolumeHoleX + 25, VolumeHoleY+1+LCDScreenHeight+4, 0]){
-        cylinder(h=WallThickness, r=3, center=false, $fn=50);
+    translate([BaseWidth - VolumeHoleX + 25, VolumeHoleY+1+LCDScreenHeight+4-2, 0]){
+        cylinder(h=WallThickness, r=4, center=false, $fn=50);
     }
     // Earphone jack hole
-    translate([BaseWidth - VolumeHoleX - 25, VolumeHoleY+1+LCDScreenHeight+4, 0]){
-        cylinder(h=WallThickness, r=3, center=false, $fn=50);
+    translate([BaseWidth - VolumeHoleX - 25, VolumeHoleY+1+LCDScreenHeight+4-2, 0]){
+        cylinder(h=WallThickness, r=4, center=false, $fn=50);
     }
     // Vent holes on the left side
     for ( i = [0 : 7] ){
@@ -140,7 +143,7 @@ difference() {
         }
     }
     // Speaker Output Hole
-    translate([BaseWidth-WallThickness, 23 , BaseHeight-50]) {
+    translate([BaseWidth-WallThickness, 23 , BaseHeight-40]) {
         rotate([0, 90, 0]){
             cube(size=[24.8, 51.5, WallThickness], center=false);
         }
