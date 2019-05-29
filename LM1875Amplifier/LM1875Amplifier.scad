@@ -1,4 +1,4 @@
-// Home version as default
+// Office version as default
 BaseWidth = 120;
 BaseDepth = 90;
 BaseHeight = 185;
@@ -13,10 +13,10 @@ VolumeHoleY = 38;
 USBHoleX = 5;
 USBHoleY = 22;
 
-VoltageDisplaySizeX = 23.5; // Store 23.5X11.3 - Done, Home 23.5X11.3, Office 24X15.5
-VoltageDisplaySizeY = 11.3;
-FanSizeX =74; // Store 75X91 - Done, Home 74X90, Office 70X84
-FanSizeY =90;
+VoltageDisplaySizeX = 24; // Store 23.5X11.3 - Done, Home 23.5X11.3, Office 24X15.5
+VoltageDisplaySizeY = 15.5;
+FanSizeX =70; // Store 75X91 - Done, Home 74X90, Office 70X84
+FanSizeY =84;
 
 module RoundedRectangle($Width=BaseWidth, $Depth=BaseDepth, $Radius=CornerRadius) 
 {
@@ -62,7 +62,7 @@ difference() {
     // Voltage display hole
 //    rotate([90, 0, 0])
 //        translate([18+WallThickness+3, 13+WallThickness, -WallThickness])
-    translate([WallThickness*3, BaseDepth-VoltageDisplaySizeY-WallThickness*3, 0])
+    translate([WallThickness*4, BaseDepth-VoltageDisplaySizeY-WallThickness*3, 0])
         cube(size=[VoltageDisplaySizeX, VoltageDisplaySizeY, WallThickness], center=false);
     
     
@@ -119,11 +119,23 @@ difference() {
             }
         }
     }
-    
+
+    // MicroUSB for NodeMCU
+    translate([WallThickness*2+1, BaseDepth, BaseHeight-15-61.5+5]){
+        rotate([90, 0, 0])
+        cube(size=[5, 10, WallThickness], center=false);
+    }
+   
     // Power input hole
     translate([0, BaseDepth-23.5, BaseHeight-15]){
         rotate([0, 90, 0])
         cube(size=[28.3, 18.5, WallThickness], center=false);
+    }
+
+    // Reset hole for NodeMCU
+    translate([0, BaseDepth-6, BaseHeight-15-61.5]){
+        rotate([0, 90, 0])
+                    cylinder(h=WallThickness, r=2.5, center=false, $fn=30);
     }
 
     // Power switch hole
@@ -145,7 +157,7 @@ difference() {
     // Speaker Output Hole
     translate([BaseWidth-WallThickness, 23 , BaseHeight-40]) {
         rotate([0, 90, 0]){
-            cube(size=[24.8, 51.5, WallThickness], center=false);
+            cube(size=[20, 51.1, WallThickness], center=false);
         }
     }
 }
