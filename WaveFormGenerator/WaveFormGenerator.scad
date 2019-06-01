@@ -1,7 +1,7 @@
 // Default is the working fine version/no sticker on screen
 
 WallThickness = 1.75;
-BaseHeight = 22+2*WallThickness;
+BaseHeight = 20+2*WallThickness;
 BaseDepth = 52+2*WallThickness;;
 BaseWidth = 114+2*WallThickness;
 CornerRadius = 2;
@@ -48,43 +48,57 @@ module base3D($Width=BaseWidth, $Depth=BaseDepth, $Height=BaseHeight, $Radius=Co
 }
 
 difference() {
-    base3D(BaseWidth, BaseDepth, BaseHeight, CornerRadius, WallThickness);
-    // OLED Screen
+    
+    union() {
+    translate([ScreenX-WallThickness, ScreenY-WallThickness])
+        cube(size=[ScreenHeight+WallThickness*2, ScreenWidth+WallThickness*2, WallThickness*2], center=false);
+
+        base3D(BaseWidth, BaseDepth, BaseHeight, CornerRadius, WallThickness);
+    }
+
     translate([ScreenX, ScreenY])
-        cube(size=[ScreenHeight, ScreenWidth, WallThickness], center=false);
+        cube(size=[ScreenHeight, ScreenWidth, WallThickness*2], center=false);
+    
     // First Button - lower right most button
-    translate([BaseWidth-WallThickness-FirstButtonX, FirstButtonY])
-        cylinder(h=WallThickness, d=ButtonSize, center=true , $fn=20);
+    translate([BaseWidth-WallThickness-FirstButtonX, FirstButtonY, 0])
+        cylinder(h=WallThickness*2, d=ButtonSize, center=true , $fn=20);
     // Button to the left of the First button
     translate([BaseWidth-WallThickness-FirstButtonX, FirstButtonY+ButtonStep*3])
-        cylinder(h=WallThickness, d=ButtonSize, center=true , $fn=20);
+        cylinder(h=WallThickness*2, d=ButtonSize, center=true , $fn=20);
     // Button to the upper of the First button
     translate([BaseWidth-WallThickness-FirstButtonX-ButtonStep*4, FirstButtonY])
-        cylinder(h=WallThickness, d=ButtonSize, center=true , $fn=20);
+        cylinder(h=WallThickness*2, d=ButtonSize, center=true , $fn=20);
     // Button to the upper/left of the First button
     translate([BaseWidth-WallThickness-FirstButtonX-ButtonStep*4, FirstButtonY+ButtonStep*3])
-        cylinder(h=WallThickness, d=ButtonSize, center=true , $fn=20);
+        cylinder(h=WallThickness*2, d=ButtonSize, center=true , $fn=20);
     // Step Button
     translate([BaseWidth-WallThickness-FirstButtonX-ButtonStep*8, FirstButtonY-ButtonStep])
-        cylinder(h=WallThickness, d=ButtonSize, center=true , $fn=20);
+        cylinder(h=WallThickness*2, d=ButtonSize, center=true , $fn=20);
     // Adjustable Resistor blule/white
     translate([BaseWidth-WallThickness-FirstButtonX-ButtonStep*4, FirstButtonY+ButtonStep*7.5])
-        cylinder(h=WallThickness, d=6, center=true , $fn=30);
+        cylinder(h=WallThickness*2, d=6, center=true , $fn=30);
     // Ground PINs
     translate([BaseWidth-WallThickness-FirstButtonX-ButtonStep, FirstButtonY+ButtonStep*6.5])
-        cube(size=[ButtonStep*3, ButtonStep, WallThickness], center=true);
+        cube(size=[ButtonStep*3, ButtonStep, WallThickness*2], center=true);
     // Amplified PINs
     translate([BaseWidth-WallThickness-FirstButtonX+ButtonStep, FirstButtonY+ButtonStep*10.5])
-        cube(size=[ButtonStep*2, ButtonStep, WallThickness], center=true);
+        cube(size=[ButtonStep*2, ButtonStep, WallThickness*2], center=true);
+    // Amplifier power voltage adjust pin and big capacitor
+    translate([BaseWidth-WallThickness-FirstButtonX+ButtonStep+15, FirstButtonY+ButtonStep*10.5-5])
+        cube(size=[18, 15, WallThickness*2], center=true);
     // Normal and Buffered PINs
     translate([BaseWidth-WallThickness-FirstButtonX-3*ButtonStep, FirstButtonY+ButtonStep*15])
-        cube(size=[ButtonStep*2, ButtonStep*2, WallThickness], center=true);
+        cube(size=[ButtonStep*2, ButtonStep*2, WallThickness*2], center=true);
+    // Nano onboard pins
+    translate([36.5+WallThickness+4, ScreenY+ScreenWidth+WallThickness+1])
+        cube(size=[8, 5, WallThickness*2], center=true);
     // Mini USB Hole
-    translate([36.5+WallThickness, WallThickness, WallThickness+5])
+    translate([36.5+WallThickness, WallThickness, WallThickness])
         rotate([90, 0, 0])
-            cube(size=[8.2, 4.4, WallThickness], center=false);
+            cube(size=[8.2, 4.4, WallThickness*2], center=false);
 }
 
+/*
 translate([18+7, BaseDepth, BaseHeight/2-4])
  rotate([270, 0, 0])
     linear_extrude(height = WallThickness/2){
@@ -96,4 +110,4 @@ rotate([270, 0, 0])
     linear_extrude(height = WallThickness/2){
         text("Copyright© 2019", size=5, font="Arial Black");
 }
-
+*/
