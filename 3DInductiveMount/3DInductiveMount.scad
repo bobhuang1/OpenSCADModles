@@ -3,7 +3,7 @@ length = 40;
 // (mm)
 width = 22;
 // (mm)
-height = 7.5;
+height = 10;
 thickness = 3;
 sensorholediameter = 18.5;
 screwholediameter = 3.4;
@@ -11,6 +11,7 @@ screwholedistance = 32;
 
 baseplatetofanoffset = 2.5;
 fanbaselength=40;
+
 
 difference() {
 union() {
@@ -33,6 +34,16 @@ difference() {
         translate([length/2+screwholedistance/2, 0, height/2])
         rotate([0, 90, 90])
         cylinder(d=screwholediameter, h=width, $fn=40);
+    
+        // Screw bigger hole 1
+        translate([length/2-screwholedistance/2, 0, height/2])
+        rotate([0, 90, 90])
+        cylinder(d=screwholediameter+3, h=3, $fn=40);
+    
+        // Screw bigger hole 2
+        translate([length/2+screwholedistance/2, 0, height/2])
+        rotate([0, 90, 90])
+        cylinder(d=screwholediameter+3, h=3, $fn=40);
 }
 
 // Connector between base and fanbase
@@ -70,15 +81,23 @@ difference() {
     translate([length+baseplatetofanoffset, 4, 4])
     rotate([0, 90, 0])
     cylinder(d=2, h=height*2, $fn=10);
-    translate([length+baseplatetofanoffset, 36, 4])
-    rotate([0, 90, 0])
-    cylinder(d=screwholediameter, h=height*2, $fn=10);
     translate([length+baseplatetofanoffset, 4, 36])
+    rotate([0, 90, 0])
+    cylinder(d=2, h=height*2, $fn=10);
+
+    translate([length+baseplatetofanoffset, 36, 4])
     rotate([0, 90, 0])
     cylinder(d=screwholediameter, h=height*2, $fn=10);
     translate([length+baseplatetofanoffset, 36, 36])
     rotate([0, 90, 0])
     cylinder(d=screwholediameter, h=height*2, $fn=10);
+
+    translate([length+baseplatetofanoffset, 36, 4])
+    rotate([0, 90, 0])
+    cylinder(d=screwholediameter+3, h=3, $fn=40);
+    translate([length+baseplatetofanoffset, 36, 36])
+    rotate([0, 90, 0])
+    cylinder(d=screwholediameter+3, h=3, $fn=40);
     
     // opening for output cooling
     translate([length+baseplatetofanoffset+baseplatetofanoffset, thickness*2.5, 0])
@@ -86,9 +105,9 @@ difference() {
 }
 
 difference() {
-    translate([length+baseplatetofanoffset+baseplatetofanoffset, 1.8, 0])
+    translate([length+baseplatetofanoffset+baseplatetofanoffset, 1.8, height])
     rotate([0, 0, 125])
-    cube([30, thickness, fanbaselength]);
+    cube([30, thickness, fanbaselength-height]);
     translate([length-20+baseplatetofanoffset, width, 0])
     cube([20, 20, fanbaselength]);
 }
@@ -99,7 +118,7 @@ linear_extrude(height = thickness, center = false, convexity = 10, twist = 0)
 polygon(points=[[length+baseplatetofanoffset+1,0],[28,width],[length+baseplatetofanoffset+1,width]], paths=[[0,1,2]]);
 
 
-
+// nozzle
 translate([42.5, 5, 0.1])
 rotate([90, 0, 180])
 difference() {
@@ -136,7 +155,12 @@ difference() {
 }
 }
 
-translate([0, 2, -60])
-rotate([0, -20, 0])
+translate([25, 2, -63])
+rotate([0, -35, 0])
 cube([40, 40, 40]);
+
+translate([length-8, fanbaselength/2+2, fanbaselength-height])
+cube([20, 12, height]);
 }
+
+
