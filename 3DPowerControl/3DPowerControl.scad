@@ -1,7 +1,7 @@
 // Office version as default
 BaseWidth = 50;
-BaseDepth = 50;
-BaseHeight = 60;
+BaseDepth = 45;
+BaseHeight = 80;
 CornerRadius = 3;
 WallThickness = 1.5;
 
@@ -45,13 +45,21 @@ difference() {
     
     // Button hole
     rotate([90, 0, 0]){
-        translate([BaseWidth/2, BaseHeight/2, -WallThickness]){
+        translate([BaseWidth/2+9, BaseHeight/2+15, -WallThickness]){
         cylinder(h=WallThickness, d=11, center=false, $fn=100);
+        }
+    }
+
+    // Power switch hole
+    
+    rotate([90, 0, 0]){
+        translate([BaseWidth/2+2, BaseHeight/2-20, -WallThickness]){
+        cube(size=[14.2, 9.6, WallThickness], center=false);
         }
     }
    
     // Power input hole
-    translate([BaseWidth-WallThickness, BaseDepth/2-9, BaseHeight/2+14-WallThickness]){
+    translate([BaseWidth-WallThickness, BaseDepth/2, BaseHeight/2+14-WallThickness]){
         rotate([0, 90, 0])
         cube(size=[28.3, 18.5, WallThickness], center=false);
     }
@@ -59,16 +67,22 @@ difference() {
     // Power output hole
     translate([0, BaseHeight/2-8, BaseHeight-10-WallThickness]){
         rotate([0, 90, 0])
-        cube(size=[8, 5, WallThickness], center=false);
+        cube(size=[9, 6, WallThickness], center=false);
     }
 
     // Control input hole
-    translate([0, BaseHeight/2-8, 15+WallThickness]){
+    translate([0, BaseHeight/2-20, 15+WallThickness]){
         rotate([0, 90, 0])
-        cube(size=[8, 5, WallThickness], center=false);
+        cube(size=[9, 6, WallThickness], center=false);
     }
+
+    // Hole in the front to see LEDs on the relay module
+    translate([5, 32, 0])
+        cube(size=[23, 8, WallThickness], center=false);
+    
     
     // Hole for ziptie
+/*
     translate([10, 10, 0])
         cube(size=[4, 4, WallThickness], center=false);
     translate([37.5, 37.5, 0])
@@ -77,7 +91,8 @@ difference() {
         cube(size=[4, 4, WallThickness], center=false);
     translate([37.5, 10, 0])
         cube(size=[4, 4, WallThickness], center=false);
-
+*/
+    
     // Hole for ziptie
     translate([10-WallThickness, BaseDepth, BaseHeight-10]){
         rotate([90, 0, 0])
