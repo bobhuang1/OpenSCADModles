@@ -1,12 +1,15 @@
 sensorholediameter = 18.5;
 
-WallThickness = 3.2;
+WallThickness = 6.0;
 
 difference()
 {
 union()
 {
 import("C:/Users/Administrator/Desktop/Arduino/OpenSCADModles/E3DV6/E3D_V5_Blower_Proximity_Sensor_Mount_f.stl");
+
+translate([118.5-20+9, 75.4-WallThickness, 0])
+    cube(size=[sensorholediameter-3.5, WallThickness, sensorholediameter+8], center=false);
 
 
 translate([118.5, 75.4, 21])
