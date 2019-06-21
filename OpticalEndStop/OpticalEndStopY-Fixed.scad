@@ -4,20 +4,25 @@ BaseWidth = 25;
 BaseDepth = 16;
 BaseHoleDiameter = 4.3;
 
-SensorToBaseHeight = 17;
+SensorToBaseHeight = WallThickness+4;
 
 SensorHoleDistance = 18.8;
 SensorHoleDiameter = 3.3;
 SensorWidth = 25;
 SensorDepth = 11;
 
-translate([BaseWidth/2-SensorDepth/2+1, 2, WallThickness-0.1])
-cube(size=[SensorDepth-2, BaseDepth-4, SensorToBaseHeight], center=false);
+translate([0, 0, WallThickness-0.1])
+cube(size=[SensorDepth-2, BaseDepth-11, SensorToBaseHeight], center=false);
 
 
 difference() {
     cube(size=[BaseWidth, BaseDepth, WallThickness], center=false);
-    translate([BaseWidth/7, BaseDepth/2, 0])
+
+    translate([BaseWidth/7*2-2, BaseDepth/2, 0])
+    cylinder(h=WallThickness, d=BaseHoleDiameter+2, center=false, $fn=15);
+
+
+    translate([BaseWidth/7*4-1, BaseDepth/2, 0])
     cylinder(h=WallThickness, d=BaseHoleDiameter, center=false, $fn=15);
     translate([BaseWidth/7*6, BaseDepth/2, 0])
     cylinder(h=WallThickness, d=BaseHoleDiameter, center=false, $fn=15);
@@ -25,7 +30,7 @@ difference() {
 }
 
 
-translate([BaseWidth/2+SensorDepth/2, BaseDepth/2-SensorWidth/2, SensorToBaseHeight])
+translate([SensorDepth, BaseDepth/2-SensorWidth/2-10, SensorToBaseHeight])
 rotate([0, 0, 90])
 difference() {
     cube(size=[SensorWidth, SensorDepth, WallThickness], center=false);
