@@ -1,6 +1,6 @@
 WallThickness = 1.5;
 
-BaseWidth = 40;
+BaseWidth = 23;
 BaseDepth = 10;
 
 SensorHoleDiameter = 3.3;
