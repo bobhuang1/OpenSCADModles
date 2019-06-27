@@ -1,4 +1,25 @@
 
+difference() {
+union () {
+translate([0, -61, 150])
+rotate([0, 90, 0])
+import("C:/Users/Administrator/Desktop/OpenSCADModles/Prusai3Parts/Y-Anchor/feibiaozhunjian-r-8.stl");
+
+
+translate([19, -61, 150])
+rotate([0, 90, 0])
+import("C:/Users/Administrator/Desktop/OpenSCADModles/Prusai3Parts/Y-Anchor/feibiaozhunjian-r-8.stl");
+
+translate([24, -61, 150])
+rotate([0, 90, 0])
+import("C:/Users/Administrator/Desktop/OpenSCADModles/Prusai3Parts/Y-Anchor/feibiaozhunjian-r-8.stl");
+
+}
+translate([30, 0, 0])
+    cube(size=[40, 40, 20], center=false);
+}
+
+/*
 BaseWidth = 116;
 BaseDepth = 51;
 BaseHeightBottom = 20;
@@ -43,6 +64,6 @@ translate([BaseWidth+WallThickness*2, 0, 0])
         rotate([-90, 0, 0])
         cylinder(h=WallThickness, d=AhcnorHoleDiameter, center=false, $fn=50);
     }
- 
+*/ 
 
 
