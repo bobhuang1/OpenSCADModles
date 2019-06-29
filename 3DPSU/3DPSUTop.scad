@@ -12,13 +12,14 @@ AhcnorHoleDiameter = 5.5;
 PowerInputHoleWidth = 28.3;
 PowerInputHoleHeight= 18.5;
 
-ButtonHoleDiameter = 11;
+ButtonHoleDiameter = 20.5;
 
 PowerSwithLength = 14.2;
 PowerSwithWidth = 9.6;
 
 BackWindowWidth  = 110;
 BackWindowHeight = 15;
+
 
 // Top main body
 difference() {
@@ -27,15 +28,15 @@ difference() {
     cube(size=[BaseWidth, BaseDepth, BaseHeightTop], center=false);
 
     // Power Input Hole
-    translate([BaseWidth+WallThickness, BaseDepth/2-PowerInputHoleWidth/2+WallThickness+8, BaseHeightTop-WallThickness-PowerInputHoleHeight])
-    cube(size=[WallThickness, PowerInputHoleWidth, PowerInputHoleHeight], center=false);
+    translate([BaseWidth-WallThickness-PowerInputHoleWidth, BaseDepth+WallThickness, BaseHeightTop-PowerInputHoleWidth+8])
+    cube(size=[PowerInputHoleWidth, WallThickness, PowerInputHoleHeight], center=false);
 
     // Button hole
-    translate([BaseWidth/2+10, BaseDepth/2+WallThickness-10+20, BaseHeightTop])
+    translate([BaseWidth/2+10-7, BaseDepth/2+WallThickness-10+20, BaseHeightTop])
     cylinder(h=WallThickness, d=ButtonHoleDiameter, center=false, $fn=30);
 
     // Power switch hole
-    translate([BaseWidth - 30, BaseDepth/2-PowerSwithLength/2+WallThickness-10+20, BaseHeightTop])
+    translate([BaseWidth - 40, BaseDepth/2-PowerSwithLength/2+WallThickness-10+20, BaseHeightTop])
     cube(size=[PowerSwithWidth, PowerSwithLength, WallThickness], center=false);
 
     // Small Window for Replay LEDs

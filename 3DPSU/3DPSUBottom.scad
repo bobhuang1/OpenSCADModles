@@ -10,11 +10,16 @@ AnchorHeight = 20;
 AhcnorHoleDiameter = 5.5;
 
 
+
 // Bottom main body
 difference() {
     cube(size=[BaseWidth+2*WallThickness, BaseDepth+2*WallThickness, BaseHeightBottom+WallThickness], center=false);
     translate([WallThickness, WallThickness, WallThickness])
     cube(size=[BaseWidth, BaseDepth, BaseHeightBottom], center=false);
+
+    translate([WallThickness*2, WallThickness*2, WallThickness])
+    cube(size=[BaseWidth-WallThickness*2, BaseDepth, BaseHeightBottom], center=false);
+
 }
 
 // Bottom anchor 1
