@@ -7,11 +7,11 @@ BaseHoleDiameter = 4.3;
 Arm1Length = 20;
 Arm1Width = 25;
 
-Arm2Length = 60;
+Arm2Length = 80;
 Arm2Width = 25;
 
 PlatformLength = 60;
-PlatformWidth = 50;
+PlatformWidth = 25;
 
 ZiptieHoleDiameter = 2.5;
 
@@ -36,13 +36,13 @@ translate([BaseWidth/2-PlatformWidth/2, -Arm1Length-PlatformLength/2, Arm2Length
 difference() {
     cube(size=[PlatformWidth, PlatformLength, WallThickness], center=false);
 
-    translate([PlatformWidth/6, PlatformLength/6, 0])
+    translate([PlatformWidth/8, PlatformLength/8, 0])
     cylinder(h=WallThickness, d=ZiptieHoleDiameter, center=false, $fn=15);
-    translate([PlatformWidth/6*5, PlatformLength/6, 0])
+    translate([PlatformWidth/8*7, PlatformLength/8, 0])
     cylinder(h=WallThickness, d=ZiptieHoleDiameter, center=false, $fn=15);
-    translate([PlatformWidth/6, PlatformLength/6*5, 0])
+    translate([PlatformWidth/8, PlatformLength/8*7, 0])
     cylinder(h=WallThickness, d=ZiptieHoleDiameter, center=false, $fn=15);
-    translate([PlatformWidth/6*5, PlatformLength/6*5, 0])
+    translate([PlatformWidth/8*7, PlatformLength/8*7, 0])
     cylinder(h=WallThickness, d=ZiptieHoleDiameter, center=false, $fn=15);
 }
 
