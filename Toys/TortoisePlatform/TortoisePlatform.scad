@@ -31,6 +31,7 @@ EmptyCircleFN = 30;
 RampDegree = 30;
 RampDivider = 10;
 
+UndersideWidth = 15;
 
 cube(size=[PlatformLength, PlatformLength, WallThickness], center=false);
 
@@ -60,3 +61,8 @@ difference() {
     drawCircles(PlatformLength, StandHeight+RampLength*sin(RampDegree));
 }
 
+translate([PlatformLength-UndersideWidth, 0, -RampLength*sin(RampDegree)-StandHeight])
+cube(size=[UndersideWidth, PlatformLength, WallThickness], center=false);
+
+translate([-RampLength*cos(RampDegree), 0, -RampLength*sin(RampDegree)-StandHeight])
+cube(size=[UndersideWidth, PlatformLength, WallThickness], center=false);
