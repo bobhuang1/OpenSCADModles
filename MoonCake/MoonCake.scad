@@ -46,10 +46,12 @@ translate([-25, -27.2, Arc1ToEdge])
 rotate([0, 0, Arc1EndAngle])
 cube(size=[SmallBoundary, SmallBoundary, CakeHeight-Arc1ToEdge*2], center=false);
 
-translate([-36, 9.8, Arc1ToEdge+Arc2ToArc1])
+// Left Wide Gap
+translate([-34.9, 9.5, Arc1ToEdge+Arc2ToArc1])
 rotate([0, 0, Arc2BeginAngle])
 cube(size=[LargeBoundary, LargeBoundary, CakeHeight-Arc1ToEdge*2-Arc2ToArc1*2], center=false);
 
+// Right Wide Gap
 translate([-27, -23, Arc1ToEdge+Arc2ToArc1])
 rotate([0, 0, Arc2EndAngle])
 cube(size=[LargeBoundary, LargeBoundary, CakeHeight-Arc1ToEdge*2-Arc2ToArc1*2], center=false);

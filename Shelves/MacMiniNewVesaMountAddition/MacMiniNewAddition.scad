@@ -1,31 +1,15 @@
-import("C:/Users/Administrator/Desktop/OpenSCADModles/Shelves/MacMiniMonitorTopMountNew/Mac_mini_2012_VESA_200_mount_1.stl");
 
 
-TopWidth = 50;
-TopLength = 208;
-FrontWidth = 20;
-WallThickness = 5;
-ExistingLength = 82;
+WallThickness = 6;
+ExistingWallThickness = 7;
+PartWidth = 30 + 3;
+ReverseWidth = 20;
+PartLength = 40;
 
-translate([-TopLength/2, ExistingLength, -TopWidth])
 difference() {
-cube([TopLength, WallThickness, TopWidth], center=false);
-
-for (j =[0:2])
-{
-for (i =[0:11])
-{
-translate([12+i*(5+10), WallThickness/2, 10+j*(5+10)])
-rotate([90, 0, 0])
-cylinder(h = WallThickness, r = 5, center = true, $fn=30);
+    cube([PartLength, ReverseWidth+WallThickness, WallThickness+ExistingWallThickness+PartWidth], center=false);
+    cube([PartLength, ReverseWidth, ExistingWallThickness+PartWidth], center=false);
 }
-}
-}
-
-
-translate([-TopLength/2, ExistingLength-FrontWidth+WallThickness, -TopWidth-WallThickness])
-cube([TopLength, FrontWidth, WallThickness], center=false);
-
 
 
 /*
