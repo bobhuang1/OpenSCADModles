@@ -1,8 +1,8 @@
 
-OuterLength = 120;
-OuterWidth = 105;
-InnerLength = 76.5;
-InnerWidth = 61.5;
+OuterLength = 80;
+OuterWidth = 115;
+InnerLength = 77;
+InnerWidth = 62;
 Margin = 10;
 HoleDiameter = 3.25;
 WallThickness = 3;
