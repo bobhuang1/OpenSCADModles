@@ -9,7 +9,7 @@ WallThickness = 3;
 UpperWallHeight = 20;
 UpperWallHoleHeight = 5;
 UpperWallToBottomHoleDistance = 5.6;
-SmallHardDriveWidth = 70.5;
+SmallHardDriveWidth = 73;
 $fn = 15;
 
 // Main surface
@@ -43,47 +43,47 @@ difference() {
 }
 
 difference() {
-    translate([0, (OuterWidth-InnerWidth)/2+Margin/2-UpperWallToBottomHoleDistance, WallThickness])
+    translate([0, (OuterWidth-InnerWidth)/2+Margin/2-7, WallThickness])
     cube([OuterLength+Margin, WallThickness, UpperWallHeight], center=false);
 
     // Holes for 2.5 hard drive on the topleft
-    translate([(OuterLength-InnerLength)/2+Margin/2, (OuterWidth-InnerWidth)/2+Margin/2-UpperWallToBottomHoleDistance+WallThickness, UpperWallToBottomHoleDistance+WallThickness])
+    translate([(OuterLength-InnerLength)/2+Margin/2, (OuterWidth-InnerWidth)/2+Margin/2+WallThickness-7, UpperWallToBottomHoleDistance+WallThickness])
     rotate([90, 0, 0])
     cylinder(h = WallThickness, d = HoleDiameter, center = false);
 
-    translate([(OuterLength-InnerLength)/2+Margin/2, (OuterWidth-InnerWidth)/2+Margin/2-UpperWallToBottomHoleDistance+WallThickness, UpperWallToBottomHoleDistance+WallThickness+10])
+    translate([(OuterLength-InnerLength)/2+Margin/2, (OuterWidth-InnerWidth)/2+Margin/2+WallThickness-7, UpperWallToBottomHoleDistance+WallThickness+10])
     rotate([90, 0, 0])
     cylinder(h = WallThickness, d = HoleDiameter, center = false);
 
 
-    translate([(OuterLength-InnerLength)/2+Margin/2+InnerLength, (OuterWidth-InnerWidth)/2+Margin/2-UpperWallToBottomHoleDistance+WallThickness, UpperWallToBottomHoleDistance+WallThickness])
+    translate([(OuterLength-InnerLength)/2+Margin/2+InnerLength, (OuterWidth-InnerWidth)/2+Margin/2+WallThickness-7, UpperWallToBottomHoleDistance+WallThickness])
     rotate([90, 0, 0])
     cylinder(h = WallThickness, d = HoleDiameter, center = false);
 
-    translate([(OuterLength-InnerLength)/2+Margin/2+InnerLength, (OuterWidth-InnerWidth)/2+Margin/2-UpperWallToBottomHoleDistance+WallThickness, UpperWallToBottomHoleDistance+WallThickness+10])
+    translate([(OuterLength-InnerLength)/2+Margin/2+InnerLength, (OuterWidth-InnerWidth)/2+Margin/2+WallThickness-7, UpperWallToBottomHoleDistance+WallThickness+10])
     rotate([90, 0, 0])
     cylinder(h = WallThickness, d = HoleDiameter, center = false);
 
 }
 
 difference() {
-    translate([0, (OuterWidth-InnerWidth)/2+Margin/2-UpperWallToBottomHoleDistance + SmallHardDriveWidth, WallThickness])
+    translate([0, (OuterWidth-InnerWidth)/2+Margin/2-7 + SmallHardDriveWidth, WallThickness])
     cube([OuterLength+Margin, WallThickness, UpperWallHeight], center=false);
 
     // Holes for 2.5 hard drive on the topright
-    translate([(OuterLength-InnerLength)/2+Margin/2, (OuterWidth-InnerWidth)/2+Margin/2+UpperWallToBottomHoleDistance+InnerWidth+0.3, UpperWallToBottomHoleDistance+WallThickness])
+    translate([(OuterLength-InnerLength)/2+Margin/2, (OuterWidth-InnerWidth)/2+Margin/2+InnerWidth+7, UpperWallToBottomHoleDistance+WallThickness])
     rotate([90, 0, 0])
     cylinder(h = WallThickness, d = HoleDiameter, center = false);
 
-    translate([(OuterLength-InnerLength)/2+Margin/2, (OuterWidth-InnerWidth)/2+Margin/2+UpperWallToBottomHoleDistance+InnerWidth+0.3, UpperWallToBottomHoleDistance+WallThickness+10])
+    translate([(OuterLength-InnerLength)/2+Margin/2, (OuterWidth-InnerWidth)/2+Margin/2+InnerWidth+7, UpperWallToBottomHoleDistance+WallThickness+10])
     rotate([90, 0, 0])
     cylinder(h = WallThickness, d = HoleDiameter, center = false);
 
-    translate([(OuterLength-InnerLength)/2+Margin/2+InnerLength, (OuterWidth-InnerWidth)/2+Margin/2+UpperWallToBottomHoleDistance+InnerWidth+0.3, UpperWallToBottomHoleDistance+WallThickness])
+    translate([(OuterLength-InnerLength)/2+Margin/2+InnerLength, (OuterWidth-InnerWidth)/2+Margin/2+InnerWidth+7, UpperWallToBottomHoleDistance+WallThickness])
     rotate([90, 0, 0])
     cylinder(h = WallThickness, d = HoleDiameter, center = false);
 
-    translate([(OuterLength-InnerLength)/2+Margin/2+InnerLength, (OuterWidth-InnerWidth)/2+Margin/2+UpperWallToBottomHoleDistance+InnerWidth+0.3, UpperWallToBottomHoleDistance+WallThickness+10])
+    translate([(OuterLength-InnerLength)/2+Margin/2+InnerLength, (OuterWidth-InnerWidth)/2+Margin/2+InnerWidth+7, UpperWallToBottomHoleDistance+WallThickness+10])
     rotate([90, 0, 0])
     cylinder(h = WallThickness, d = HoleDiameter, center = false);
 
